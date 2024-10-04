@@ -1,0 +1,5 @@
+# number of classes
+nc: 6
+
+# class names
+names: [ 'crazing', 'inclusion', 'patches','pitted_surface', 'rolled-in_scale','scratches']

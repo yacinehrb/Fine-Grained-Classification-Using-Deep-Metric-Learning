@@ -1,0 +1,28 @@
+# PASCAL VOC dataset http://host.robots.ox.ac.uk/pascal/VOC/
+# Train command: python train.py --data voc.yaml
+# Default dataset location is next to /yolov5:
+#   /parent_folder
+#     /VOC
+#     /yolov5
+
+
+# download command/URL (optional)
+#download: bash data/scripts/get_voc.sh
+#path: D:/Coding-OD/A_data/NEU-DET/NEU-DET-COCO
+path: D:/TEST-Algorithm/A_data/NEU-DET/NEU-DET-COCO
+# train and val data as 1) directory: path/images/, 2) file: path/images.txt, or 3) list: [path1/images/, path2/images/]
+train: images/train  # 16551 images
+val: images/val # 4952 images
+test: images/test
+
+# number of classes
+nc: 6
+
+# class names
+names:
+  0: crazing
+  1: inclusion
+  2: patches
+  3: pitted_surface
+  4: rolled-in_scale
+  5: scratches

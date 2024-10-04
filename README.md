@@ -30,8 +30,8 @@ The embeddings are scattered, with no clear separation between classes.
 ### After Training (Using Triplet Loss):
 The embeddings form well-defined clusters, with similar classes grouped together and distinct classes separated.
 
-![Embedding Visualization](Affter training.PNG)
-![Embedding Visualization](Before training.PNG)
+![Embedding Visualization](./Affter training.PNG)
+![Embedding Visualization](./Before training.PNG)
 
 ## Installation
 1. Clone the repository:

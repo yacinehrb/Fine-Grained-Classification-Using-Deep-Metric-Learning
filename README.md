@@ -9,29 +9,31 @@ This project builds an efficient model for classifying anomalies in mechanical c
 - **Improved Accuracy**: Outperforms traditional classification methods, especially for complex data distributions.
 
 ## Triplet Loss Function
-The Triplet Loss function ensures that the distance between the anchor sample \(A\) and positive sample \(P\) is smaller than the distance between the anchor and the negative sample \(N\), ensuring better separation between classes.
+
+The Triplet Loss function ensures that the distance between the anchor sample (A) and the positive sample (P) is smaller than the distance between the anchor and the negative sample (N), promoting better separation between classes.
 
 \[
 L(A, P, N) = \max\left(0, \| f(A) - f(P) \|^2 - \| f(A) - f(N) \|^2 + \alpha \right)
 \]
 
 Where:
-- \(A\): **Anchor** sample
-- \(P\): **Positive** sample (same class as Anchor)
-- \(N\): **Negative** sample (different class from Anchor)
-- \(f(\cdot)\): Embedding function
-- \( \alpha \): Margin to ensure separation
+- **A**: Anchor sample
+- **P**: Positive sample (same class as Anchor)
+- **N**: Negative sample (different class from Anchor)
+- **f(·)**: Embedding function
+- **α**: Margin to ensure separation
 
 ## Embedding Visualization
 
 ### Before Training:
 The embeddings are scattered, with no clear separation between classes.
 
+![Embedding Before Training](./Before_training.png)
+
 ### After Training (Using Triplet Loss):
 The embeddings form well-defined clusters, with similar classes grouped together and distinct classes separated.
 
-![Embedding Visualization](./Affter training.PNG)
-![Embedding Visualization](./Before training.PNG)
+![Embedding After Training](./Affter_training.png)
 
 ## Installation
 1. Clone the repository:

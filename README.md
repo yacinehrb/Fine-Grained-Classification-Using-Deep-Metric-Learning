@@ -26,7 +26,7 @@ Where:
 ### Before Training:
 The embeddings are scattered, with no clear separation between classes.
 
-![Embedding Before Training](./Before_training.png)
+![Embedding Before Training](Before_training.PNG)
 
 ### After Training (Using Triplet Loss):
 The embeddings form well-defined clusters, with similar classes grouped together and distinct classes separated.

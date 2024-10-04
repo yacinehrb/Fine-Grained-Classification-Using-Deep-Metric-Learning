@@ -12,9 +12,7 @@ This project builds an efficient model for classifying anomalies in mechanical c
 
 The Triplet Loss function ensures that the distance between the anchor sample (A) and the positive sample (P) is smaller than the distance between the anchor and the negative sample (N), promoting better separation between classes.
 
-\[
-L(A, P, N) = \max\left(0, \| f(A) - f(P) \|^2 - \| f(A) - f(N) \|^2 + \alpha \right)
-\]
+L(A, P, N) = max(0, || f(A) - f(P) ||^2 - || f(A) - f(N) ||^2 + α)
 
 Where:
 - **A**: Anchor sample

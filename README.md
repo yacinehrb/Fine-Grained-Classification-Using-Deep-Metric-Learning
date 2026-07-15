@@ -1,4 +1,3 @@
-````markdown
 # Fine-Grained Classification Using Deep Metric Learning
 
 ## Overview

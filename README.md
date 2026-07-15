@@ -1,40 +1,92 @@
 # Fine-Grained Classification Using Deep Metric Learning
 
 ## Overview
-This project builds an efficient model for classifying anomalies in mechanical components using **Deep Metric Learning**. It is particularly useful for tasks where classes exhibit high intra-variance and low inter-variance, making traditional classification methods less effective.
 
-## Features
-- **Triplet Loss Function**: Optimizes distance measurements to improve classification accuracy.
-- **Embedding Model**: Maps input data into a feature space where learned distance metrics can differentiate between categories.
-- **Improved Accuracy**: Outperforms traditional classification methods, especially for complex data distributions.
+This project implements a **Deep Metric Learning** pipeline for fine-grained classification of mechanical component anomalies. Instead of directly predicting class labels, the model learns a discriminative embedding space where visually similar samples are located close together while different classes are pushed farther apart.
 
-## Triplet Loss Function
+This approach is particularly effective for industrial inspection tasks where defects exhibit **high intra-class variation** and **low inter-class variation**, making conventional classification models less reliable.
 
-The Triplet Loss function ensures that the distance between the anchor sample (A) and the positive sample (P) is smaller than the distance between the anchor and the negative sample (N), promoting better separation between classes.
+---
 
-L(A, P, N) = max(0, || f(A) - f(P) ||^2 - || f(A) - f(N) ||^2 + α)
+## Key Features
 
-Where:
-- **A**: Anchor sample
-- **P**: Positive sample (same class as Anchor)
-- **N**: Negative sample (different class from Anchor)
-- **f(·)**: Embedding function
-- **α**: Margin to ensure separation
+- 🔹 Deep Metric Learning framework using **Triplet Loss**
+- 🔹 Learns robust feature embeddings instead of class probabilities
+- 🔹 Improved separation between visually similar defect categories
+- 🔹 Suitable for fine-grained industrial inspection and anomaly classification
+- 🔹 Embedding visualization before and after training
 
-## Embedding Visualization
+---
 
-### Before Training:
-The embeddings are scattered, with no clear separation between classes.
+## Methodology
+
+The network learns an embedding function
+
+\[
+f(x): x \rightarrow \mathbb{R}^d
+\]
+
+that maps each image into a feature space where:
+
+- Images from the **same class** are close together.
+- Images from **different classes** are far apart.
+
+Training is performed using **Triplet Loss**.
+
+### Triplet Loss
+
+For every training triplet:
+
+- **Anchor (A):** reference image
+- **Positive (P):** image from the same class
+- **Negative (N):** image from a different class
+
+the objective is
+
+\[
+L(A,P,N)=\max\left(0,\ ||f(A)-f(P)||^2-||f(A)-f(N)||^2+\alpha\right)
+\]
+
+where:
+
+- **f(·)** is the embedding network
+- **α** is the margin enforcing class separation
+
+The model minimizes the distance between the anchor and positive sample while maximizing the distance between the anchor and negative sample.
+
+---
+
+## Embedding Space Visualization
+
+### Before Training
+
+The embeddings are randomly distributed, resulting in poor class separability.
 
 ![Embedding Before Training](Before_training.PNG)
 
-### After Training (Using Triplet Loss):
-The embeddings form well-defined clusters, with similar classes grouped together and distinct classes separated.
+---
+
+### After Training
+
+After optimization with Triplet Loss, samples belonging to the same category naturally cluster together while different categories become clearly separated.
 
 ![Embedding After Training](After_training.PNG)
 
-## Installation
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-username/repo-name.git
-   cd repo-name
+
+---
+
+## Applications
+
+This project can be applied to:
+
+- Industrial quality inspection
+- Mechanical defect classification
+- Surface anomaly detection
+- Product similarity search
+- Image retrieval systems
+
+---
+
+## Results
+
+Deep Metric Learning significantly improves the discriminative power of the learned feature space by producing compact intra-class clusters and larger inter-class margins. This makes the approach particularly suitable for fine-grained visual recognition problems where conventional softmax classifiers struggle.
